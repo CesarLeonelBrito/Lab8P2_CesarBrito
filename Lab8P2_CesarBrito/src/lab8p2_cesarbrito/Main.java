@@ -105,6 +105,19 @@ public class Main extends javax.swing.JFrame {
         buttonGroup6 = new javax.swing.ButtonGroup();
         buttonGroup7 = new javax.swing.ButtonGroup();
         buttonGroup8 = new javax.swing.ButtonGroup();
+        jd_busqueda_especifica = new javax.swing.JDialog();
+        jb_generalista = new javax.swing.JButton();
+        jb_premium = new javax.swing.JButton();
+        jb_deportivo = new javax.swing.JButton();
+        tf_vin_search = new javax.swing.JFormattedTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        tf_marca_search = new javax.swing.JTextField();
+        jb_buscar_porVin = new javax.swing.JButton();
+        jb_buscar_porMarca = new javax.swing.JButton();
+        jd_listar_especifico = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_especifica = new javax.swing.JTable();
         crear_carro = new javax.swing.JButton();
         listar_carros = new javax.swing.JButton();
         listar_carros_especiales = new javax.swing.JButton();
@@ -657,6 +670,140 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
+        jb_generalista.setText("Generalista");
+        jb_generalista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_generalistaActionPerformed(evt);
+            }
+        });
+
+        jb_premium.setText("Premium");
+        jb_premium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_premiumActionPerformed(evt);
+            }
+        });
+
+        jb_deportivo.setText("Deportivo");
+        jb_deportivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_deportivoActionPerformed(evt);
+            }
+        });
+
+        tf_vin_search.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        jLabel21.setText("Buscar por VIN");
+
+        jLabel22.setText("Buscar por Marca");
+
+        jb_buscar_porVin.setText("Buscar");
+        jb_buscar_porVin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_buscar_porVinActionPerformed(evt);
+            }
+        });
+
+        jb_buscar_porMarca.setText("Buscar");
+        jb_buscar_porMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_buscar_porMarcaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_busqueda_especificaLayout = new javax.swing.GroupLayout(jd_busqueda_especifica.getContentPane());
+        jd_busqueda_especifica.getContentPane().setLayout(jd_busqueda_especificaLayout);
+        jd_busqueda_especificaLayout.setHorizontalGroup(
+            jd_busqueda_especificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_busqueda_especificaLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jd_busqueda_especificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jb_buscar_porMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tf_marca_search)
+                    .addComponent(jb_buscar_porVin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tf_vin_search)
+                    .addGroup(jd_busqueda_especificaLayout.createSequentialGroup()
+                        .addComponent(jb_generalista, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                        .addComponent(jb_premium, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127)
+                        .addComponent(jb_deportivo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48))
+            .addGroup(jd_busqueda_especificaLayout.createSequentialGroup()
+                .addGroup(jd_busqueda_especificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_busqueda_especificaLayout.createSequentialGroup()
+                        .addGap(338, 338, 338)
+                        .addComponent(jLabel21))
+                    .addGroup(jd_busqueda_especificaLayout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addComponent(jLabel22)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_busqueda_especificaLayout.setVerticalGroup(
+            jd_busqueda_especificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_busqueda_especificaLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jd_busqueda_especificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_premium, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_generalista, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_deportivo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel21)
+                .addGap(18, 18, 18)
+                .addComponent(tf_vin_search, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_buscar_porVin)
+                .addGap(62, 62, 62)
+                .addComponent(jLabel22)
+                .addGap(39, 39, 39)
+                .addComponent(tf_marca_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_buscar_porMarca)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
+        jt_especifica.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "VIN", "Categoria", "Marca", "Color", "Motor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jt_especifica);
+        if (jt_especifica.getColumnModel().getColumnCount() > 0) {
+            jt_especifica.getColumnModel().getColumn(0).setResizable(false);
+            jt_especifica.getColumnModel().getColumn(1).setResizable(false);
+            jt_especifica.getColumnModel().getColumn(2).setResizable(false);
+            jt_especifica.getColumnModel().getColumn(3).setResizable(false);
+            jt_especifica.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jd_listar_especificoLayout = new javax.swing.GroupLayout(jd_listar_especifico.getContentPane());
+        jd_listar_especifico.getContentPane().setLayout(jd_listar_especificoLayout);
+        jd_listar_especificoLayout.setHorizontalGroup(
+            jd_listar_especificoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listar_especificoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
+        );
+        jd_listar_especificoLayout.setVerticalGroup(
+            jd_listar_especificoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listar_especificoLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         crear_carro.setText("Crear Nuevo Carro");
@@ -674,6 +821,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         listar_carros_especiales.setText("Listar Con Filtro");
+        listar_carros_especiales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listar_carros_especialesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1077,6 +1229,193 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_modificarActionPerformed
 
+    private void jb_generalistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_generalistaActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jt_especifica.getModel();
+            modelo.setRowCount(0);
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("select* from carros");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    if (rs.getString(2).equals("Autos generalistas")) {
+                        int vin = rs.getInt(1);
+                        String categoria = rs.getString(2);
+                        String marca = rs.getString(3);
+                        String color = rs.getString(6);
+                        String motor = rs.getString(7);
+                        Object[] nuevo = {vin, categoria, marca, color, motor};
+                        modelo.addRow(nuevo);
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+            jt_especifica.setModel(modelo);
+            jd_listar_especifico.setModal(true);
+            jd_listar_especifico.pack();
+            jd_listar_especifico.setLocationRelativeTo(this);
+            jd_listar_especifico.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_generalistaActionPerformed
+
+    private void listar_carros_especialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listar_carros_especialesActionPerformed
+        // TODO add your handling code here:
+        jd_busqueda_especifica.setModal(true);
+        jd_busqueda_especifica.pack();
+        jd_busqueda_especifica.setLocationRelativeTo(this);
+        jd_busqueda_especifica.setVisible(true);
+    }//GEN-LAST:event_listar_carros_especialesActionPerformed
+
+    private void jb_premiumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_premiumActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jt_especifica.getModel();
+            modelo.setRowCount(0);
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("select* from carros");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    if (rs.getString(2).equals("Autos premium")) {
+                        int vin = rs.getInt(1);
+                        String categoria = rs.getString(2);
+                        String marca = rs.getString(3);
+                        String color = rs.getString(6);
+                        String motor = rs.getString(7);
+                        Object[] nuevo = {vin, categoria, marca, color, motor};
+                        modelo.addRow(nuevo);
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+            jt_especifica.setModel(modelo);
+            jd_listar_especifico.setModal(true);
+            jd_listar_especifico.pack();
+            jd_listar_especifico.setLocationRelativeTo(this);
+            jd_listar_especifico.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_premiumActionPerformed
+
+    private void jb_deportivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_deportivoActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jt_especifica.getModel();
+            modelo.setRowCount(0);
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("select* from carros");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    if (rs.getString(2).equals("Autos deportivos")) {
+                        int vin = rs.getInt(1);
+                        String categoria = rs.getString(2);
+                        String marca = rs.getString(3);
+                        String color = rs.getString(6);
+                        String motor = rs.getString(7);
+                        Object[] nuevo = {vin, categoria, marca, color, motor};
+                        modelo.addRow(nuevo);
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+            jt_especifica.setModel(modelo);
+            jd_listar_especifico.setModal(true);
+            jd_listar_especifico.pack();
+            jd_listar_especifico.setLocationRelativeTo(this);
+            jd_listar_especifico.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_deportivoActionPerformed
+
+    private void jb_buscar_porVinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscar_porVinActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jt_especifica.getModel();
+            modelo.setRowCount(0);
+            int ingresado = Integer.parseInt(tf_vin_search.getText());
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("select* from carros");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    if (rs.getInt(1) == ingresado) {
+                        int vin = rs.getInt(1);
+                        String categoria = rs.getString(2);
+                        String marca = rs.getString(3);
+                        String color = rs.getString(6);
+                        String motor = rs.getString(7);
+                        Object[] nuevo = {vin, categoria, marca, color, motor};
+                        modelo.addRow(nuevo);
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+            jt_especifica.setModel(modelo);
+            tf_vin_search.setText("");
+            jd_listar_especifico.setModal(true);
+            jd_listar_especifico.pack();
+            jd_listar_especifico.setLocationRelativeTo(this);
+            jd_listar_especifico.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_buscar_porVinActionPerformed
+
+    private void jb_buscar_porMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscar_porMarcaActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jt_especifica.getModel();
+            modelo.setRowCount(0);
+            String ingresado = tf_marca_search.getText();
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("select* from carros");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    if (rs.getString(3).equalsIgnoreCase(ingresado)) {
+                        int vin = rs.getInt(1);
+                        String categoria = rs.getString(2);
+                        String marca = rs.getString(3);
+                        String color = rs.getString(6);
+                        String motor = rs.getString(7);
+                        Object[] nuevo = {vin, categoria, marca, color, motor};
+                        modelo.addRow(nuevo);
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+            jt_especifica.setModel(modelo);
+            tf_marca_search.setText("");
+            jd_listar_especifico.setModal(true);
+            jd_listar_especifico.pack();
+            jd_listar_especifico.setLocationRelativeTo(this);
+            jd_listar_especifico.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_buscar_porMarcaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1135,6 +1474,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1143,6 +1484,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton jb1_audi;
     private javax.swing.JRadioButton jb1_audi1;
     private javax.swing.JRadioButton jb1_bentley;
@@ -1184,12 +1526,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton jb4_ninguna;
     private javax.swing.JRadioButton jb4_ninguna1;
     private javax.swing.JButton jb_agregar_carro;
+    private javax.swing.JButton jb_buscar_porMarca;
+    private javax.swing.JButton jb_buscar_porVin;
+    private javax.swing.JButton jb_deportivo;
     private javax.swing.JButton jb_eliminar;
+    private javax.swing.JButton jb_generalista;
     private javax.swing.JButton jb_modificar;
     private javax.swing.JButton jb_modificar_carro;
+    private javax.swing.JButton jb_premium;
+    private javax.swing.JDialog jd_busqueda_especifica;
     private javax.swing.JDialog jd_crear_carro;
     private javax.swing.JDialog jd_listar_carros;
+    private javax.swing.JDialog jd_listar_especifico;
     private javax.swing.JDialog jd_modificar_carro;
+    private javax.swing.JTable jt_especifica;
     private javax.swing.JTable jtable;
     private javax.swing.JButton listar_carros;
     private javax.swing.JButton listar_carros_especiales;
@@ -1197,6 +1547,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_color1;
     private javax.swing.JFormattedTextField tf_ensamblaje;
     private javax.swing.JFormattedTextField tf_ensamblaje1;
+    private javax.swing.JTextField tf_marca_search;
     private javax.swing.JFormattedTextField tf_pasajeros;
     private javax.swing.JFormattedTextField tf_pasajeros1;
     private javax.swing.JFormattedTextField tf_precio;
@@ -1205,6 +1556,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField tf_puertas1;
     private javax.swing.JFormattedTextField tf_vin;
     private javax.swing.JFormattedTextField tf_vin1;
+    private javax.swing.JFormattedTextField tf_vin_search;
     // End of variables declaration//GEN-END:variables
     int poCarro;
 }
