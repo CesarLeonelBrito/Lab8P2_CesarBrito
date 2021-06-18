@@ -1,6 +1,9 @@
 package lab8p2_cesarbrito;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Main extends javax.swing.JFrame {
 
@@ -55,6 +58,11 @@ public class Main extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
+        jd_listar_carros = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtable = new javax.swing.JTable();
+        jb_eliminar = new javax.swing.JButton();
+        jb_modificar = new javax.swing.JButton();
         crear_carro = new javax.swing.JButton();
         listar_carros = new javax.swing.JButton();
         listar_carros_especiales = new javax.swing.JButton();
@@ -301,6 +309,64 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
+        jtable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "VIN", "Categoria", "Marca", "Color", "Motor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jtable);
+        if (jtable.getColumnModel().getColumnCount() > 0) {
+            jtable.getColumnModel().getColumn(0).setResizable(false);
+            jtable.getColumnModel().getColumn(1).setResizable(false);
+            jtable.getColumnModel().getColumn(2).setResizable(false);
+            jtable.getColumnModel().getColumn(3).setResizable(false);
+            jtable.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        jb_eliminar.setText("Eliminar");
+        jb_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_eliminarActionPerformed(evt);
+            }
+        });
+
+        jb_modificar.setText("Modificar");
+
+        javax.swing.GroupLayout jd_listar_carrosLayout = new javax.swing.GroupLayout(jd_listar_carros.getContentPane());
+        jd_listar_carros.getContentPane().setLayout(jd_listar_carrosLayout);
+        jd_listar_carrosLayout.setHorizontalGroup(
+            jd_listar_carrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listar_carrosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_listar_carrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jb_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jd_listar_carrosLayout.setVerticalGroup(
+            jd_listar_carrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listar_carrosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         crear_carro.setText("Crear Nuevo Carro");
@@ -311,6 +377,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         listar_carros.setText("Listar Todos");
+        listar_carros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listar_carrosActionPerformed(evt);
+            }
+        });
 
         listar_carros_especiales.setText("Listar Con Filtro");
 
@@ -415,7 +486,23 @@ public class Main extends javax.swing.JFrame {
             } else if (jb4_electrico.isSelected()) {
                 hibridacion = "Eléctrico";
             }
+            /////////////////////////////////
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("insert into carros values('" + vin + "', '" + categoria + "', '" + marca + "', '" + carroceria + "', " + puertas + ", '" + color + "', '" + motor + "', '" + precio
+                        + "', '" + hibridacion + "', '" + pasajeros + "', '" + ensamblaje + "')");
+                /*db.query.execute("INSERT INTO carros"
+                        + " (vin,categoria,marca,carroceria,puertas,color,motor,precio,hibridacion,pasajeros,ensamblaje)"
+                        + " VALUES ('" + vin + "', '" + categoria + "', '" + marca + "', '" + carroceria + "', '" + puertas + "', '" + color + "', '" + motor + "', '" + precio
+                        + "', '" + hibridacion + "', '" + pasajeros + "', '" + ensamblaje + "')");*/
+                db.commit();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
 
+            /////////////////////////////////
             tf_vin.setText("");
             tf_puertas.setText("");
             tf_precio.setText("");
@@ -428,6 +515,63 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ocurrio un error");
         }
     }//GEN-LAST:event_jb_agregar_claseActionPerformed
+
+    private void listar_carrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listar_carrosActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jtable.getModel();
+            modelo.setRowCount(0);
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("select* from carros");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    int vin = rs.getInt(1);
+                    String categoria = rs.getString(2);
+                    String marca = rs.getString(3);
+                    String color = rs.getString(6);
+                    String motor = rs.getString(7);
+                    Object[] nuevo = {vin, categoria, marca, color, motor};
+                    modelo.addRow(nuevo);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+            jtable.setModel(modelo);
+            jd_listar_carros.setModal(true);
+            jd_listar_carros.pack();
+            jd_listar_carros.setLocationRelativeTo(this);
+            jd_listar_carros.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_listar_carrosActionPerformed
+
+    private void jb_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_eliminarActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (jtable.getSelectedRow() >= 0) {
+                int po = jtable.getSelectedRow();
+                int vin = (int) jtable.getValueAt(po, 0);
+                Dba db = new Dba("./base.accdb");
+                db.conectar();
+                try {
+                    db.query.execute("delete from carros where vin=" + vin);
+                    db.commit();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                db.desconectar();
+                DefaultTableModel modelo = (DefaultTableModel) jtable.getModel();
+                modelo.removeRow(po);
+                jtable.setModel(modelo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,6 +624,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton jb1_audi;
     private javax.swing.JRadioButton jb1_bentley;
     private javax.swing.JRadioButton jb1_bugatti;
@@ -501,7 +646,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton jb4_micro;
     private javax.swing.JRadioButton jb4_ninguna;
     private javax.swing.JButton jb_agregar_clase;
+    private javax.swing.JButton jb_eliminar;
+    private javax.swing.JButton jb_modificar;
     private javax.swing.JDialog jd_crear_carro;
+    private javax.swing.JDialog jd_listar_carros;
+    private javax.swing.JTable jtable;
     private javax.swing.JButton listar_carros;
     private javax.swing.JButton listar_carros_especiales;
     private javax.swing.JTextField tf_color;
