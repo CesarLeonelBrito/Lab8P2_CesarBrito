@@ -867,91 +867,111 @@ public class Main extends javax.swing.JFrame {
         try {
             int vin, puertas, precio, pasajeros, ensamblaje;
             String marca = "", carroceria = "", motor = "", hibridacion = "", color, categoria = "";
+            boolean usado = false;
             vin = Integer.parseInt(tf_vin.getText());
-            puertas = Integer.parseInt(tf_puertas.getText());
-            precio = Integer.parseInt(tf_precio.getText());
-            pasajeros = Integer.parseInt(tf_pasajeros.getText());
-            ensamblaje = Integer.parseInt(tf_ensamblaje.getText());
-            color = tf_color.getText();
-            if (jb1_seat.isSelected()) {
-                marca = "SEAT";
-                categoria = "Autos generalistas";
-            } else if (jb1_skoda.isSelected()) {
-                marca = "Škoda";
-                categoria = "Autos generalistas";
-            } else if (jb1_audi.isSelected()) {
-                marca = "Audi";
-                categoria = "Autos premium";
-            } else if (jb1_volks.isSelected()) {
-                marca = "Volkswagen";
-                categoria = "Autos premium";
-            } else if (jb1_bentley.isSelected()) {
-                marca = "Bentley";
-                categoria = "Autos premium";
-            } else if (jb1_porsche.isSelected()) {
-                marca = "Porsche";
-                categoria = "Autos deportivos";
-            } else if (jb1_lamb.isSelected()) {
-                marca = "Lamborghini";
-                categoria = "Autos deportivos";
-            } else if (jb1_bugatti.isSelected()) {
-                marca = "Bugatti";
-                categoria = "Autos deportivos";
-            }
 
-            if (jb2_sedan.isSelected()) {
-                carroceria = "Sedán";
-            } else if (jb2_familiar.isSelected()) {
-                carroceria = "Familiar";
-            } else if (jb2_hatch.isSelected()) {
-                carroceria = "Hatchback";
-            } else if (jb2_fast.isSelected()) {
-                carroceria = "Fastback";
-            } else if (jb2_suv.isSelected()) {
-                carroceria = "SUV";
-            }
-
-            if (jb3_combustion.isSelected()) {
-                motor = "Combustión";
-            } else if (jb3_electrico.isSelected()) {
-                motor = "Eléctrico";
-            }
-
-            if (jb4_ninguna.isSelected()) {
-                hibridacion = "Ninguna";
-            } else if (jb4_micro.isSelected()) {
-                hibridacion = "Microhíbrido";
-            } else if (jb4_enchufable.isSelected()) {
-                hibridacion = "Híbrido Enchufable";
-            } else if (jb4_convencional.isSelected()) {
-                hibridacion = "Híbrido Convencional";
-            } else if (jb4_electrico.isSelected()) {
-                hibridacion = "Eléctrico";
-            }
-
-            Dba db = new Dba("./base.accdb");
-            db.conectar();
+            Dba db1 = new Dba("./base.accdb");
+            db1.conectar();
             try {
-                db.query.execute("insert into carros values('" + vin + "', '" + categoria + "', '" + marca + "', '" + carroceria + "', " + puertas + ", '" + color + "', '" + motor + "', '" + precio
-                        + "', '" + hibridacion + "', '" + pasajeros + "', '" + ensamblaje + "')");
-                /*db.query.execute("INSERT INTO carros"
-                        + " (vin,categoria,marca,carroceria,puertas,color,motor,precio,hibridacion,pasajeros,ensamblaje)"
-                        + " VALUES ('" + vin + "', '" + categoria + "', '" + marca + "', '" + carroceria + "', '" + puertas + "', '" + color + "', '" + motor + "', '" + precio
-                        + "', '" + hibridacion + "', '" + pasajeros + "', '" + ensamblaje + "')");*/
-                db.commit();
+                db1.query.execute("select* from carros");
+                ResultSet rs = db1.query.getResultSet();
+                while (rs.next()) {
+                    if (rs.getInt(1) == vin) {
+                        usado = true;
+                    }
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            db.desconectar();
+            db1.desconectar();
+            if (usado) {
+                JOptionPane.showMessageDialog(this, "ESTE CODIGO VIN YA ESTA USADO");
+            } else {
+                puertas = Integer.parseInt(tf_puertas.getText());
+                precio = Integer.parseInt(tf_precio.getText());
+                pasajeros = Integer.parseInt(tf_pasajeros.getText());
+                ensamblaje = Integer.parseInt(tf_ensamblaje.getText());
+                color = tf_color.getText();
+                if (jb1_seat.isSelected()) {
+                    marca = "SEAT";
+                    categoria = "Autos generalistas";
+                } else if (jb1_skoda.isSelected()) {
+                    marca = "Škoda";
+                    categoria = "Autos generalistas";
+                } else if (jb1_audi.isSelected()) {
+                    marca = "Audi";
+                    categoria = "Autos premium";
+                } else if (jb1_volks.isSelected()) {
+                    marca = "Volkswagen";
+                    categoria = "Autos premium";
+                } else if (jb1_bentley.isSelected()) {
+                    marca = "Bentley";
+                    categoria = "Autos premium";
+                } else if (jb1_porsche.isSelected()) {
+                    marca = "Porsche";
+                    categoria = "Autos deportivos";
+                } else if (jb1_lamb.isSelected()) {
+                    marca = "Lamborghini";
+                    categoria = "Autos deportivos";
+                } else if (jb1_bugatti.isSelected()) {
+                    marca = "Bugatti";
+                    categoria = "Autos deportivos";
+                }
 
-            tf_vin.setText("");
-            tf_puertas.setText("");
-            tf_precio.setText("");
-            tf_pasajeros.setText("");
-            tf_ensamblaje.setText("");
-            tf_color.setText("");
-            JOptionPane.showMessageDialog(this, "Se ha agregado exitosamente");
-            jd_crear_carro.hide();
+                if (jb2_sedan.isSelected()) {
+                    carroceria = "Sedán";
+                } else if (jb2_familiar.isSelected()) {
+                    carroceria = "Familiar";
+                } else if (jb2_hatch.isSelected()) {
+                    carroceria = "Hatchback";
+                } else if (jb2_fast.isSelected()) {
+                    carroceria = "Fastback";
+                } else if (jb2_suv.isSelected()) {
+                    carroceria = "SUV";
+                }
+
+                if (jb3_combustion.isSelected()) {
+                    motor = "Combustión";
+                } else if (jb3_electrico.isSelected()) {
+                    motor = "Eléctrico";
+                }
+
+                if (jb4_ninguna.isSelected()) {
+                    hibridacion = "Ninguna";
+                } else if (jb4_micro.isSelected()) {
+                    hibridacion = "Microhíbrido";
+                } else if (jb4_enchufable.isSelected()) {
+                    hibridacion = "Híbrido Enchufable";
+                } else if (jb4_convencional.isSelected()) {
+                    hibridacion = "Híbrido Convencional";
+                } else if (jb4_electrico.isSelected()) {
+                    hibridacion = "Eléctrico";
+                }
+
+                Dba db = new Dba("./base.accdb");
+                db.conectar();
+                try {
+                    db.query.execute("insert into carros values('" + vin + "', '" + categoria + "', '" + marca + "', '" + carroceria + "', " + puertas + ", '" + color + "', '" + motor + "', '" + precio
+                            + "', '" + hibridacion + "', '" + pasajeros + "', '" + ensamblaje + "')");
+                    /*db.query.execute("INSERT INTO carros"
+                        + " (vin,categoria,marca,carroceria,puertas,color,motor,precio,hibridacion,pasajeros,ensamblaje)"
+                        + " VALUES ('" + vin + "', '" + categoria + "', '" + marca + "', '" + carroceria + "', '" + puertas + "', '" + color + "', '" + motor + "', '" + precio
+                        + "', '" + hibridacion + "', '" + pasajeros + "', '" + ensamblaje + "')");*/
+                    db.commit();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                db.desconectar();
+
+                tf_vin.setText("");
+                tf_puertas.setText("");
+                tf_precio.setText("");
+                tf_pasajeros.setText("");
+                tf_ensamblaje.setText("");
+                tf_color.setText("");
+                JOptionPane.showMessageDialog(this, "Se ha agregado exitosamente");
+                jd_crear_carro.hide();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error");
         }
