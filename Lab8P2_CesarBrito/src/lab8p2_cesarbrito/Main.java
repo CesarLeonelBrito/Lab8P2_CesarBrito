@@ -53,7 +53,7 @@ public class Main extends javax.swing.JFrame {
         jb4_electrico = new javax.swing.JRadioButton();
         tf_pasajeros = new javax.swing.JFormattedTextField();
         tf_ensamblaje = new javax.swing.JFormattedTextField();
-        jb_agregar_clase = new javax.swing.JButton();
+        jb_agregar_carro = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
@@ -63,6 +63,48 @@ public class Main extends javax.swing.JFrame {
         jtable = new javax.swing.JTable();
         jb_eliminar = new javax.swing.JButton();
         jb_modificar = new javax.swing.JButton();
+        jd_modificar_carro = new javax.swing.JDialog();
+        jb1_volks1 = new javax.swing.JRadioButton();
+        jb_modificar_carro = new javax.swing.JButton();
+        jb1_bentley1 = new javax.swing.JRadioButton();
+        jb1_porsche1 = new javax.swing.JRadioButton();
+        jb1_lamb1 = new javax.swing.JRadioButton();
+        jb1_bugatti1 = new javax.swing.JRadioButton();
+        jb2_sedan1 = new javax.swing.JRadioButton();
+        jb2_familiar1 = new javax.swing.JRadioButton();
+        jb2_hatch1 = new javax.swing.JRadioButton();
+        jb2_fast1 = new javax.swing.JRadioButton();
+        jb2_suv1 = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        tf_puertas1 = new javax.swing.JFormattedTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tf_color1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jb3_combustion1 = new javax.swing.JRadioButton();
+        jLabel14 = new javax.swing.JLabel();
+        jb3_electrico1 = new javax.swing.JRadioButton();
+        jLabel15 = new javax.swing.JLabel();
+        tf_precio1 = new javax.swing.JFormattedTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jb4_ninguna1 = new javax.swing.JRadioButton();
+        jLabel17 = new javax.swing.JLabel();
+        jb4_micro1 = new javax.swing.JRadioButton();
+        jLabel18 = new javax.swing.JLabel();
+        jb4_convencional1 = new javax.swing.JRadioButton();
+        tf_vin1 = new javax.swing.JFormattedTextField();
+        jb1_seat1 = new javax.swing.JRadioButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jb4_enchufable1 = new javax.swing.JRadioButton();
+        jb4_electrico1 = new javax.swing.JRadioButton();
+        jb1_skoda1 = new javax.swing.JRadioButton();
+        tf_pasajeros1 = new javax.swing.JFormattedTextField();
+        jb1_audi1 = new javax.swing.JRadioButton();
+        tf_ensamblaje1 = new javax.swing.JFormattedTextField();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
+        buttonGroup8 = new javax.swing.ButtonGroup();
         crear_carro = new javax.swing.JButton();
         listar_carros = new javax.swing.JButton();
         listar_carros_especiales = new javax.swing.JButton();
@@ -157,10 +199,10 @@ public class Main extends javax.swing.JFrame {
 
         tf_ensamblaje.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
 
-        jb_agregar_clase.setText("Agregar");
-        jb_agregar_clase.addActionListener(new java.awt.event.ActionListener() {
+        jb_agregar_carro.setText("Agregar");
+        jb_agregar_carro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_agregar_claseActionPerformed(evt);
+                jb_agregar_carroActionPerformed(evt);
             }
         });
 
@@ -185,7 +227,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jd_crear_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jb_agregar_clase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_agregar_carro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tf_vin)
                             .addComponent(tf_puertas, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tf_color)
@@ -305,7 +347,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(tf_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jb_agregar_clase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jb_agregar_carro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -342,6 +384,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jb_modificar.setText("Modificar");
+        jb_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_modificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_listar_carrosLayout = new javax.swing.GroupLayout(jd_listar_carros.getContentPane());
         jd_listar_carros.getContentPane().setLayout(jd_listar_carrosLayout);
@@ -365,6 +412,249 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jb_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        buttonGroup5.add(jb1_volks1);
+        jb1_volks1.setText("Volkswagen ");
+
+        jb_modificar_carro.setText("Modificar");
+        jb_modificar_carro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_modificar_carroActionPerformed(evt);
+            }
+        });
+
+        buttonGroup5.add(jb1_bentley1);
+        jb1_bentley1.setText("Bentley");
+
+        buttonGroup5.add(jb1_porsche1);
+        jb1_porsche1.setText("Porsche");
+
+        buttonGroup5.add(jb1_lamb1);
+        jb1_lamb1.setText("Lamborghini");
+
+        buttonGroup5.add(jb1_bugatti1);
+        jb1_bugatti1.setText("Bugatti");
+
+        buttonGroup6.add(jb2_sedan1);
+        jb2_sedan1.setText("Sedán");
+
+        buttonGroup6.add(jb2_familiar1);
+        jb2_familiar1.setText("Familiar");
+
+        buttonGroup6.add(jb2_hatch1);
+        jb2_hatch1.setText("Hatchback");
+
+        buttonGroup6.add(jb2_fast1);
+        jb2_fast1.setText("Fastback");
+
+        buttonGroup6.add(jb2_suv1);
+        jb2_suv1.setText("SUV");
+
+        jLabel11.setText("Carroceria:");
+
+        tf_puertas1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        jLabel12.setText("Puertas:");
+
+        jLabel13.setText("Color:");
+
+        buttonGroup7.add(jb3_combustion1);
+        jb3_combustion1.setText("Combustión");
+
+        jLabel14.setText("Motor:");
+
+        buttonGroup7.add(jb3_electrico1);
+        jb3_electrico1.setText("Eléctrico");
+
+        jLabel15.setText("Precio:");
+
+        tf_precio1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        jLabel16.setText("Hibridación:");
+
+        buttonGroup8.add(jb4_ninguna1);
+        jb4_ninguna1.setText("Ninguna");
+
+        jLabel17.setText("Cantidad de Pasajeros:");
+
+        buttonGroup8.add(jb4_micro1);
+        jb4_micro1.setText("Microhíbrido");
+
+        jLabel18.setText("Ensamblaje(En Segundos):");
+
+        buttonGroup8.add(jb4_convencional1);
+        jb4_convencional1.setText("Híbrido Convencional");
+
+        tf_vin1.setEditable(false);
+        tf_vin1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        buttonGroup5.add(jb1_seat1);
+        jb1_seat1.setText("SEAT");
+
+        jLabel19.setText("VIN:");
+
+        jLabel20.setText("Marca:");
+
+        buttonGroup8.add(jb4_enchufable1);
+        jb4_enchufable1.setText("Híbrido Enchufable");
+
+        buttonGroup8.add(jb4_electrico1);
+        jb4_electrico1.setText("Eléctrico");
+
+        buttonGroup5.add(jb1_skoda1);
+        jb1_skoda1.setText("Škoda");
+
+        tf_pasajeros1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        buttonGroup5.add(jb1_audi1);
+        jb1_audi1.setText("Audi");
+
+        tf_ensamblaje1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        javax.swing.GroupLayout jd_modificar_carroLayout = new javax.swing.GroupLayout(jd_modificar_carro.getContentPane());
+        jd_modificar_carro.getContentPane().setLayout(jd_modificar_carroLayout);
+        jd_modificar_carroLayout.setHorizontalGroup(
+            jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                        .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb_modificar_carro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tf_vin1)
+                            .addComponent(tf_puertas1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_color1)
+                            .addComponent(tf_precio1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_pasajeros1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_ensamblaje1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                                        .addComponent(jb2_sedan1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb2_familiar1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb2_hatch1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb2_fast1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb2_suv1))
+                                    .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                                        .addComponent(jb3_combustion1)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(jb3_electrico1))
+                                    .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                                        .addComponent(jb4_ninguna1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb4_micro1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb4_convencional1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb4_enchufable1))
+                                    .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                                        .addComponent(jb1_seat1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb1_skoda1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb1_audi1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb1_volks1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb1_bentley1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb1_porsche1)))
+                                .addGap(0, 20, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_carroLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_carroLayout.createSequentialGroup()
+                                .addComponent(jb4_electrico1)
+                                .addGap(302, 302, 302))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_carroLayout.createSequentialGroup()
+                                .addComponent(jb1_lamb1)
+                                .addGap(61, 61, 61)
+                                .addComponent(jb1_bugatti1)
+                                .addGap(207, 207, 207))))))
+        );
+        jd_modificar_carroLayout.setVerticalGroup(
+            jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificar_carroLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(tf_vin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jb1_seat1)
+                    .addComponent(jb1_skoda1)
+                    .addComponent(jb1_audi1)
+                    .addComponent(jb1_volks1)
+                    .addComponent(jb1_bentley1)
+                    .addComponent(jb1_porsche1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb1_lamb1)
+                    .addComponent(jb1_bugatti1))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jb2_sedan1)
+                    .addComponent(jb2_familiar1)
+                    .addComponent(jb2_hatch1)
+                    .addComponent(jb2_fast1)
+                    .addComponent(jb2_suv1))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_puertas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tf_color1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jb3_combustion1)
+                    .addComponent(jb3_electrico1))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tf_precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jb4_ninguna1)
+                    .addComponent(jb4_micro1)
+                    .addComponent(jb4_convencional1)
+                    .addComponent(jb4_enchufable1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb4_electrico1)
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(tf_pasajeros1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_carroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(tf_ensamblaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jb_modificar_carro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -420,7 +710,7 @@ public class Main extends javax.swing.JFrame {
         jd_crear_carro.setVisible(true);
     }//GEN-LAST:event_crear_carroActionPerformed
 
-    private void jb_agregar_claseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregar_claseActionPerformed
+    private void jb_agregar_carroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregar_carroActionPerformed
         // TODO add your handling code here:
         try {
             int vin, puertas, precio, pasajeros, ensamblaje;
@@ -486,7 +776,7 @@ public class Main extends javax.swing.JFrame {
             } else if (jb4_electrico.isSelected()) {
                 hibridacion = "Eléctrico";
             }
-            /////////////////////////////////
+
             Dba db = new Dba("./base.accdb");
             db.conectar();
             try {
@@ -502,7 +792,6 @@ public class Main extends javax.swing.JFrame {
             }
             db.desconectar();
 
-            /////////////////////////////////
             tf_vin.setText("");
             tf_puertas.setText("");
             tf_precio.setText("");
@@ -514,7 +803,7 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error");
         }
-    }//GEN-LAST:event_jb_agregar_claseActionPerformed
+    }//GEN-LAST:event_jb_agregar_carroActionPerformed
 
     private void listar_carrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listar_carrosActionPerformed
         // TODO add your handling code here:
@@ -573,6 +862,197 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_eliminarActionPerformed
 
+    private void jb_modificar_carroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificar_carroActionPerformed
+        // TODO add your handling code here:
+        try {
+            int puertas, precio, pasajeros, ensamblaje;
+            String marca = "", carroceria = "", motor = "", hibridacion = "", color, categoria = "";
+            puertas = Integer.parseInt(tf_puertas1.getText());
+            precio = Integer.parseInt(tf_precio1.getText());
+            pasajeros = Integer.parseInt(tf_pasajeros1.getText());
+            ensamblaje = Integer.parseInt(tf_ensamblaje1.getText());
+            color = tf_color1.getText();
+            if (jb1_seat1.isSelected()) {
+                marca = "SEAT";
+                categoria = "Autos generalistas";
+            } else if (jb1_skoda1.isSelected()) {
+                marca = "Škoda";
+                categoria = "Autos generalistas";
+            } else if (jb1_audi1.isSelected()) {
+                marca = "Audi";
+                categoria = "Autos premium";
+            } else if (jb1_volks1.isSelected()) {
+                marca = "Volkswagen";
+                categoria = "Autos premium";
+            } else if (jb1_bentley1.isSelected()) {
+                marca = "Bentley";
+                categoria = "Autos premium";
+            } else if (jb1_porsche1.isSelected()) {
+                marca = "Porsche";
+                categoria = "Autos deportivos";
+            } else if (jb1_lamb1.isSelected()) {
+                marca = "Lamborghini";
+                categoria = "Autos deportivos";
+            } else if (jb1_bugatti1.isSelected()) {
+                marca = "Bugatti";
+                categoria = "Autos deportivos";
+            }
+
+            if (jb2_sedan1.isSelected()) {
+                carroceria = "Sedán";
+            } else if (jb2_familiar1.isSelected()) {
+                carroceria = "Familiar";
+            } else if (jb2_hatch1.isSelected()) {
+                carroceria = "Hatchback";
+            } else if (jb2_fast1.isSelected()) {
+                carroceria = "Fastback";
+            } else if (jb2_suv1.isSelected()) {
+                carroceria = "SUV";
+            }
+
+            if (jb3_combustion1.isSelected()) {
+                motor = "Combustión";
+            } else if (jb3_electrico1.isSelected()) {
+                motor = "Eléctrico";
+            }
+
+            if (jb4_ninguna1.isSelected()) {
+                hibridacion = "Ninguna";
+            } else if (jb4_micro1.isSelected()) {
+                hibridacion = "Microhíbrido";
+            } else if (jb4_enchufable1.isSelected()) {
+                hibridacion = "Híbrido Enchufable";
+            } else if (jb4_convencional1.isSelected()) {
+                hibridacion = "Híbrido Convencional";
+            } else if (jb4_electrico1.isSelected()) {
+                hibridacion = "Eléctrico";
+            }
+
+            int numeroVIN = (int) jtable.getValueAt(poCarro, 0);
+            Dba db = new Dba("./base.accdb");
+            db.conectar();
+            try {
+                db.query.execute("update carros "
+                        + "set categorta='" + categoria + "'"
+                        + "set marca='" + marca + "'"
+                        + "set carroceria='" + carroceria + "'"
+                        + "set puertas='" + puertas + "'"
+                        + "set color='" + color + "'"
+                        + "set motor'" + motor + "'"
+                        + "set precio='" + precio + "'"
+                        + "set hibridacion='" + hibridacion + "'"
+                        + "set pasajeros='" + pasajeros + "'"
+                        + "set ensamblaje='" + ensamblaje + "' "
+                        + "where cuenta=" + numeroVIN);
+                db.commit();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            db.desconectar();
+
+            JOptionPane.showMessageDialog(this, "Se ha modificado exitosamente");
+            jd_modificar_carro.hide();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_modificar_carroActionPerformed
+
+    private void jb_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (jtable.getSelectedRow() >= 0) {
+                int vin1 = 0, puertas = 0, precio = 0, pasajeros = 0, ensamblaje = 0;
+                String marca = "", carroceria = "", motor = "", hibridacion = "", color = "", categoria = "";
+                poCarro = jtable.getSelectedRow();
+                int vin = (int) jtable.getValueAt(poCarro, 0);
+                Dba db = new Dba("./base.accdb");
+                db.conectar();
+                try {
+                    db.query.execute("select* from carros where vin=" + vin);
+                    ResultSet rs = db.query.getResultSet();
+                    while (rs.next()) {
+                        vin1 = rs.getInt(1);
+                        categoria = rs.getString(2);
+                        marca = rs.getString(3);
+                        carroceria = rs.getString(4);
+                        puertas = rs.getInt(5);
+                        color = rs.getString(6);
+                        motor = rs.getString(7);
+                        precio = rs.getInt(8);
+                        hibridacion = rs.getString(9);
+                        pasajeros = rs.getInt(10);
+                        ensamblaje = rs.getInt(11);
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                db.desconectar();
+
+                if (marca.equals("SEAT")) {
+                    jb1_seat1.setSelected(true);
+                } else if (marca.equals("Škoda")) {
+                    jb1_skoda1.setSelected(true);
+                } else if (marca.equals("Audi")) {
+                    jb1_audi1.setSelected(true);
+                } else if (marca.equals("Volkswagen")) {
+                    jb1_volks1.setSelected(true);
+                } else if (marca.equals("Bentley")) {
+                    jb1_bentley1.setSelected(true);
+                } else if (marca.equals("Porsche")) {
+                    jb1_porsche1.setSelected(true);
+                } else if (marca.equals("Lamborghini")) {
+                    jb1_lamb1.setSelected(true);
+                } else if (marca.equals("Bugatti")) {
+                    jb1_bugatti1.setSelected(true);
+                }
+
+                if (carroceria.equals("Sedán")) {
+                    jb2_sedan1.setSelected(true);
+                } else if (carroceria.equals("Familiar")) {
+                    jb2_familiar1.setSelected(true);
+                } else if (carroceria.equals("Hatchback")) {
+                    jb2_hatch1.setSelected(true);
+                } else if (carroceria.equals("Fastback")) {
+                    jb2_fast1.setSelected(true);
+                } else if (carroceria.equals("SUV")) {
+                    jb2_suv1.setSelected(true);
+                }
+
+                if (motor.equals("Combustión")) {
+                    jb3_combustion1.setSelected(true);
+                } else if (motor.equals("Eléctrico")) {
+                    jb3_electrico1.setSelected(true);
+                }
+
+                if (hibridacion.equals("Ninguna")) {
+                    jb4_ninguna1.setSelected(true);
+                } else if (hibridacion.equals("Microhíbrido")) {
+                    jb4_micro1.setSelected(true);
+                } else if (hibridacion.equals("Híbrido Enchufable")) {
+                    jb4_enchufable1.setSelected(true);
+                } else if (hibridacion.equals("Híbrido Convencional")) {
+                    jb4_convencional1.setSelected(true);
+                } else if (hibridacion.equals("Eléctrico")) {
+                    jb4_electrico1.setSelected(true);
+                }
+
+                tf_vin1.setText(String.valueOf(vin1));
+                tf_puertas1.setText(String.valueOf(puertas));
+                tf_precio1.setText(String.valueOf(precio));
+                tf_pasajeros1.setText(String.valueOf(pasajeros));
+                tf_ensamblaje1.setText(String.valueOf(ensamblaje));
+                tf_color1.setText(color);
+
+                jd_modificar_carro.setModal(true);
+                jd_modificar_carro.pack();
+                jd_modificar_carro.setLocationRelativeTo(this);
+                jd_modificar_carro.setVisible(true);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jb_modificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -613,10 +1093,24 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JButton crear_carro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -626,38 +1120,67 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton jb1_audi;
+    private javax.swing.JRadioButton jb1_audi1;
     private javax.swing.JRadioButton jb1_bentley;
+    private javax.swing.JRadioButton jb1_bentley1;
     private javax.swing.JRadioButton jb1_bugatti;
+    private javax.swing.JRadioButton jb1_bugatti1;
     private javax.swing.JRadioButton jb1_lamb;
+    private javax.swing.JRadioButton jb1_lamb1;
     private javax.swing.JRadioButton jb1_porsche;
+    private javax.swing.JRadioButton jb1_porsche1;
     private javax.swing.JRadioButton jb1_seat;
+    private javax.swing.JRadioButton jb1_seat1;
     private javax.swing.JRadioButton jb1_skoda;
+    private javax.swing.JRadioButton jb1_skoda1;
     private javax.swing.JRadioButton jb1_volks;
+    private javax.swing.JRadioButton jb1_volks1;
     private javax.swing.JRadioButton jb2_familiar;
+    private javax.swing.JRadioButton jb2_familiar1;
     private javax.swing.JRadioButton jb2_fast;
+    private javax.swing.JRadioButton jb2_fast1;
     private javax.swing.JRadioButton jb2_hatch;
+    private javax.swing.JRadioButton jb2_hatch1;
     private javax.swing.JRadioButton jb2_sedan;
+    private javax.swing.JRadioButton jb2_sedan1;
     private javax.swing.JRadioButton jb2_suv;
+    private javax.swing.JRadioButton jb2_suv1;
     private javax.swing.JRadioButton jb3_combustion;
+    private javax.swing.JRadioButton jb3_combustion1;
     private javax.swing.JRadioButton jb3_electrico;
+    private javax.swing.JRadioButton jb3_electrico1;
     private javax.swing.JRadioButton jb4_convencional;
+    private javax.swing.JRadioButton jb4_convencional1;
     private javax.swing.JRadioButton jb4_electrico;
+    private javax.swing.JRadioButton jb4_electrico1;
     private javax.swing.JRadioButton jb4_enchufable;
+    private javax.swing.JRadioButton jb4_enchufable1;
     private javax.swing.JRadioButton jb4_micro;
+    private javax.swing.JRadioButton jb4_micro1;
     private javax.swing.JRadioButton jb4_ninguna;
-    private javax.swing.JButton jb_agregar_clase;
+    private javax.swing.JRadioButton jb4_ninguna1;
+    private javax.swing.JButton jb_agregar_carro;
     private javax.swing.JButton jb_eliminar;
     private javax.swing.JButton jb_modificar;
+    private javax.swing.JButton jb_modificar_carro;
     private javax.swing.JDialog jd_crear_carro;
     private javax.swing.JDialog jd_listar_carros;
+    private javax.swing.JDialog jd_modificar_carro;
     private javax.swing.JTable jtable;
     private javax.swing.JButton listar_carros;
     private javax.swing.JButton listar_carros_especiales;
     private javax.swing.JTextField tf_color;
+    private javax.swing.JTextField tf_color1;
     private javax.swing.JFormattedTextField tf_ensamblaje;
+    private javax.swing.JFormattedTextField tf_ensamblaje1;
     private javax.swing.JFormattedTextField tf_pasajeros;
+    private javax.swing.JFormattedTextField tf_pasajeros1;
     private javax.swing.JFormattedTextField tf_precio;
+    private javax.swing.JFormattedTextField tf_precio1;
     private javax.swing.JFormattedTextField tf_puertas;
+    private javax.swing.JFormattedTextField tf_puertas1;
     private javax.swing.JFormattedTextField tf_vin;
+    private javax.swing.JFormattedTextField tf_vin1;
     // End of variables declaration//GEN-END:variables
+    int poCarro;
 }
