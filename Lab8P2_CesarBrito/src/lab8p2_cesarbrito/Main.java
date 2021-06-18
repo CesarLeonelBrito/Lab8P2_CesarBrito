@@ -933,22 +933,46 @@ public class Main extends javax.swing.JFrame {
             db.conectar();
             try {
                 db.query.execute("update carros "
-                        + "set categorta='" + categoria + "'"
+                        + "set categoria='" + categoria + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set marca='" + marca + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set carroceria='" + carroceria + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set puertas='" + puertas + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set color='" + color + "'"
-                        + "set motor'" + motor + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
+                        + "set motor='" + motor + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set precio='" + precio + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set hibridacion='" + hibridacion + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set pasajeros='" + pasajeros + "'"
+                        + "where vin=" + numeroVIN);
+                db.query.execute("update carros "
                         + "set ensamblaje='" + ensamblaje + "' "
-                        + "where cuenta=" + numeroVIN);
+                        + "where vin=" + numeroVIN);
                 db.commit();
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
             db.desconectar();
+
+            DefaultTableModel modelo = (DefaultTableModel) jtable.getModel();
+            Object[] nuevo = {numeroVIN, categoria, marca, color, motor};
+            modelo.insertRow(poCarro, nuevo);
+            modelo.removeRow(poCarro + 1);
+            jtable.setModel(modelo);
 
             JOptionPane.showMessageDialog(this, "Se ha modificado exitosamente");
             jd_modificar_carro.hide();
